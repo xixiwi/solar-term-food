@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI节气美食合成器</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 引入Lottie动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="loader"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff9f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      "
+    >
+      <div style="font-size: 24px">加载中... ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა</div>
+    </div>
+    <div class="container">
+      <!-- 节气选择区 -->
+      <div id="season-selector">
+        <div class="season-title">
+          <h1>节气美食合成器</h1>
+          <p>选择一个节气，开始你的美食之旅</p>
+        </div>
+        <div class="season-cards">
+          <div class="season-card" data-season="清明">
+            <div class="card-image">
+              <img src="assets/images/dishes/qingtuan.png" alt="清明">
+              <div class="season-overlay">清明</div>
+            </div>
+            <div class="card-content">
+              <h3>清明时节雨纷纷</h3>
+              <p>制作应节小食：青团</p>
+              <button class="select-btn" data-season="清明">开始制作</button>
+            </div>
+          </div>
+            <div class="season-card" data-season="端午">
+              <div class="card-image">
+                <img src="assets/images/dishes/zongzi.png" alt="端午">
+                <div class="season-overlay">端午</div>
+              </div>
+              <div class="card-content">
+                <h3>端午包粽香</h3>
+                <p>制作应节美食：粽子</p>
+                <button class="select-btn" data-season="端午">开始制作</button>
+              </div>
+            </div>
+
+
+          <div class="season-card" data-season="立夏">
+            <div class="card-image">
+              <img src="assets/images/dishes/lychee.png" alt="立夏">
+              <div class="season-overlay">立夏</div>
+            </div>
+            <div class="card-content">
+              <h3>立夏品荔枝蜜</h3>
+              <p>制作应节甜品：荔枝冰</p>
+              <button class="select-btn" data-season="立夏">开始制作</button>
+            </div>
+          </div>
+          <div class="season-card" data-season="白露">
+            <div class="card-image">
+              <img src="assets/images/dishes/crab.png" alt="白露">
+              <div class="season-overlay">白露</div>
+            </div>
+            <div class="card-content">
+              <h3>白露蟹正肥</h3>
+              <p>制作应节美食：清蒸螃蟹</p>
+              <button class="select-btn" data-season="白露">开始制作</button>
+            </div>
+          </div>
+          <div class="season-card" data-season="立冬">
+            <div class="card-image">
+              <img src="assets/images/dishes/ginger_duck.png" alt="立冬">
+              <div class="season-overlay">立冬</div>
+            </div>
+            <div class="card-content">
+              <h3>立冬进补时</h3>
+              <p>制作应节美食：姜母鸭</p>
+              <button class="select-btn" data-season="立冬">开始制作</button>
+            </div>
+          </div>
+          <div class="season-card" data-season="冬至">
+            <div class="card-image">
+              <img src="assets/images/dishes/jiaozi.png" alt="冬至">
+              <div class="season-overlay">冬至</div>
+            </div>
+            <div class="card-content">
+              <h3>冬至暖心饺子香</h3>
+              <p>制作应节美食：饺子</p>
+              <button class="select-btn" data-season="冬至">开始制作</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 游戏主界面 -->
+      <div id="game-area" style="display: none">
+        <h2 id="current-season">当前节气：<span></span></h2>
+        <!-- 食材拖拽区 -->
+        <div id="ingredients">
+          <!-- 清明食材示例 -->
+          <img
+            src="assets/images/qingming/qingtuan.png"
+            class="draggable"
+            draggable="true"
+            data-ingredient="青团"
+          />
+          <img
+            src="assets/images/qingming/aiye.png"
+            class="draggable"
+            draggable="true"
+            data-ingredient="艾草"
+          />
+        </div>
+        <!-- 烹饪锅具 -->
+        <div id="pot" class="dropzone"></div>
+        <!-- 生成按钮 -->
+        <button id="generate-btn">生成美食！</button>
+      </div>
+
+      <!-- 结果展示区 -->
+      <div id="result" style="display: none">
+        <div id="animation"></div>
+        <div id="recipe-text"></div>
+      </div>
+    </div>
+    <div id="ai-chat-panel" style="display: none">
+      <div class="chat-header">
+        <h3>🥢 美食文化助手</h3>
+        <button id="close-chat">×</button>
+      </div>
+      <div id="chat-messages"></div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="user-question"
+          placeholder="提问关于这道菜的问题..."
+        />
+        <button id="send-btn">发送</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
