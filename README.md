@@ -22,9 +22,8 @@
 
 1.  **克隆仓库**：
     ```bash
-    git clone https://github.com/your-username/solar-term-food.git
+    git clone https://github.com/xixiwi/solar-term-food.git
     ```
-    （请将 `https://github.com/your-username/solar-term-food.git` 替换为你的实际仓库地址）
 
 2.  **进入项目目录**：
     ```bash
@@ -60,23 +59,26 @@
         然后访问 `http://localhost:8080`。
 
 ## 项目结构
+
+```bash
 solar-term-food/
 ├── assets/
 │   ├── animations/         # Lottie动画文件 (cooking.json)
 │   ├── images/             # 项目图片资源
-│   │   ├── bailu/
-│   │   ├── dishes/
-│   │   ├── dongzhi/
-│   │   ├── duanwu/
-│   │   ├── lidong/
-│   │   ├── lixia/
-│   │   ├── qingming/
-│   │   └── ...
-│   └── bg-texture.png
-├── index.html              # 项目主页面，包含所有UI结构
-├── script.js               # 核心JavaScript逻辑，包括游戏交互和AI集成
+│   │   ├── bailu/          # 白露节气食材
+│   │   ├── dishes/         # 成品菜图片
+│   │   ├── dongzhi/        # 冬至节气食材
+│   │   ├── duanwu/         # 端午节气食材
+│   │   ├── lidong/         # 立冬节气食材
+│   │   ├── lixia/          # 立夏节气食材
+│   │   ├── qingming/       # 清明节气食材
+│   │   └── ...             # 其他分类
+│   └── bg-texture.png      # 背景纹理图
+├── index.html              # 项目主页面（包含所有UI结构）
+├── script.js               # 核心JavaScript逻辑（游戏交互+AI集成）
 ├── style.css               # 项目样式文件
 └── README.md               # 项目说明文件
+```
 
 ## 未来展望
 
